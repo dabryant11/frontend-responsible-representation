@@ -24,7 +24,7 @@ function Senate() {
                 recycled.
               </p> */}
               <a href="#" className="btn btn-outline-secondary">
-                <Link to={`/sites/textiles`}> View Bills</Link>
+                <Link to={`/sites/textiles`}> View Legislators</Link>
               </a>
             </div>
           </div>

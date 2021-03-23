@@ -1,87 +1,55 @@
-// import logo from "./logo.svg";
 import "./App.css";
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
 
 import React, { useEffect, useState } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 
 import HomePage from "./HomePage";
-// import MyRecyclables from "./MyRecyclables";
-// import RecyclingSites from "./RecyclingSites";
-// import RecyclingCategories from "./RecyclingCategories";
-// import FavoriteSites from "./FavoriteSites";
 import Header from "./Header";
 import Footer from "./Footer";
 import Activism from "./Activism";
+import UserLegislator from "./UserLegislator";
 import HOR from "./HOR";
+import HORLegislator from "./HORLegislator";
 import Senate from "./Senate";
-// import Login from "./Login";
-// import SitePage from "./SitePage";
-// import SiteType from "./SiteType";
-// import TextileSites from "./TextileSites";
-// import ElectronicSites from "./ElectronicSites";
-// import GeneralSites from "./GeneralSites";
+import StateAgency from "./StateAgency";
+import StateBudget from "./StateBudget";
+import Chambers from "./Chambers";
+import MinorityBusiness from "./MinorityBusiness";
 
-function App({ site }) {
-  // const [sites, setSites] = useState([]);
-  // const [favSites, setFavSites] = useState([]);
-  // const [categories, setCategories] = useState([]);
+function App() {
+  const [legislators, setLegislators] = useState([]);
+  const [businesses, setBusinesses] = useState([]);
+  const [userLegislators, setUserLegislators] = useState([]);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/sites")
-  //     .then((r) => r.json())
-  //     .then((sites) => {
-  //       setSites(sites);
-  //     });
-  // }, []);
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/categories")
-  //     .then((r) => r.json())
-  //     .then((categories) => {
-  //       setCategories(categories);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch("http://localhost:3000/user_legislators")
+      .then((r) => r.json())
+      .then((data) => setUserLegislators(data));
+  }, []);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:3000/user_sites")
-  //     .then((r) => r.json())
-  //     .then((favSites) => {
-  //       setFavSites(favSites);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch("http://localhost:3000/minority_businesses")
+      .then((r) => r.json())
+      .then((data) => setBusinesses(data));
+  }, []);
 
-  // const generalSites = sites.filter(
-  //   (site) => site.ig === "https://www.instagram.com/nycsanitation/?hl=en"
-  // );
-  // const textileSites = sites.filter(
-  //   (site) => site.ig === "https://www.instagram.com/wearablecollections/?hl=en"
-  // );
+  useEffect(() => {
+    fetch("http://localhost:3000/legislators")
+      .then((r) => r.json())
+      .then((legislators) => {
+        setLegislators(legislators);
+      });
+  }, []);
 
-  // const electronicSites = sites.filter(
-  //   (site) => site.ig === "https://www.instagram.com/nysdec/?hl=en"
-  // );
+  // console.log("aghhhhhhh", legislators);
+
+  const senators = legislators.filter(
+    (legislator) => legislator.title === "Senator"
+  );
+
+  const representatives = legislators.filter(
+    (legislator) => legislator.title === "Representative"
+  );
 
   return (
     <div className="app">
@@ -98,22 +66,6 @@ function App({ site }) {
       <Header />
 
       <Switch>
-        {/* <Route exact path="/recyclables">
-          <MyRecyclables sites={sites} />
-        </Route>
-        <Route exact path="/fav_sites">
-          <FavoriteSites fav_sites={favSites} set_fav_sites={setFavSites} />
-        </Route>
-        <Route exact path="/sites">
-          <RecyclingSites
-            sites={sites}
-            fav_sites={favSites}
-            set_fav_sites={setFavSites}
-          />
-        </Route>
-        <Route exact path="/categories">
-          <RecyclingCategories categories={categories} />
-        </Route> */}
         <Route exact path="/home">
           <HomePage />
         </Route>
@@ -121,30 +73,39 @@ function App({ site }) {
           <Activism />
         </Route>
         <Route exact path="/HOR">
-          <HOR />
+          <HOR representatives={representatives} />
         </Route>
-        <Route exact path="/senates">
-          <Senate />
+        <Route exact path="/senate">
+          <Senate senators={senators} />
         </Route>
-
-        {/* <Route exact path="/login">
-          <Login />
+        <Route exact path="/state_agencies">
+          <StateAgency />
         </Route>
-        <Route exact path="/site-type">
-          <SiteType />
+        <Route exact path="/state_budgets">
+          <StateBudget />
         </Route>
-        <Route exact path="/sites/general">
-          <GeneralSites generalSites={generalSites} />
+        <Route exact path="/user_legislators">
+          <UserLegislator
+            userLegislators={userLegislators}
+            setUserLegislators={setUserLegislators}
+          />
         </Route>
-        <Route exact path="/sites/textiles">
-          <TextileSites textileSites={textileSites} />
+        <Route exact path="/minority_businesses">
+          <MinorityBusiness
+            businesses={businesses}
+            setBusinesses={setBusinesses}
+          />
         </Route>
-        <Route exact path="/sites/electronics">
-          <ElectronicSites electronicSites={electronicSites} />
-        </Route> */}
-        {/* <Route exact path="/sites/:id">
-          <SitePage site={site} />
-        </Route> */}
+        <Route exact path="/HOR/legislators">
+          <HORLegislator representatives={representatives} />
+        </Route>
+        <Route exact path="/chambers">
+          <Chambers
+            senators={senators}
+            representatives={representatives}
+            legislators={legislators}
+          />
+        </Route>
       </Switch>
       <Footer />
     </div>

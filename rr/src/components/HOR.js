@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import HORLegislator from "./HORLegislator";
 
-function HOR() {
+function HOR({ representatives }) {
+  // console.log("yooooo", representatives);
   return (
     <div className="container-fluid padding">
       <div className="row welcome text-center">
@@ -20,7 +22,8 @@ function HOR() {
               />
               <div className="card-body"></div>
               <div className="card-footer">
-                <h4 className="card-title">Legislators</h4>
+                {/* <h4 className="card-title">Legislators</h4> */}
+                <Link to={`/HOR/legislators`}> Legislators</Link>
               </div>
             </div>
           </div>

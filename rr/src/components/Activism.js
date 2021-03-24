@@ -62,7 +62,7 @@ function Activism() {
       <div className="container-fluid padding">
         <div className="row welcome text-center">
           <div className="col-12">
-            <h1 className="display">Meet the Team</h1>
+            {/* <h1 className="display">Meet the Team</h1> */}
           </div>
           <hr></hr>
         </div>
@@ -70,7 +70,7 @@ function Activism() {
       <div className="container-fluid padding">
         <div className="row padding">
           <div className="col-md-4">
-            <div className="card">
+            {/* <div className="card">
               <img
                 className="card-img-top"
                 style={{ width: "50px", height: "auto" }}
@@ -80,25 +80,25 @@ function Activism() {
                 <h4 className="card-title">Darien Bryant</h4>
                 <p className="card-text">Full Stack Developer</p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
       <div className="container-fluid padding">
         <div className="row padding">
           <div className="col-lg-6">
-            <h2>Our Philosophy</h2>
+            {/* <h2>Our Philosophy</h2>
             <p>
               The best way to keep garbage from landfills is by limiting the
               materials you use. Reduce use when you can – and reuse and recycle
               the rest.
-            </p>
+            </p> */}
           </div>
           <div className="col-lg-6">
-            <img
+            {/* <img
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT61L7peEy4RCEZ41RjGxW_BzLHeB9QNrdsUwgvh4jjh6veVAItY4tbVU-O_QFVdxKikOJSZHN&usqp=CAc"
               className="img-fluid"
-            />
+            /> */}
           </div>
         </div>
         <hr className="my-4"></hr>

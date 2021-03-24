@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import EditNote from "./EditNote";
 
 function UserLegislator({ userLegislators }) {
+  const [isEditing, setIsEditing] = useState(false);
+
   // console.log(userLegislators[0].id);
   // console.log(userLegislators[1]);
   // console.log(userLegislators[2].id);
@@ -8,20 +11,28 @@ function UserLegislator({ userLegislators }) {
   // console.log(userLegislators[0].legislator.name);
   // const mapLegislators = userLegislators[0];
 
-  function handleDeleteClick(e) {
+  function handleDeleteClick(e, legislator) {
     console.log(e);
+    console.log(e.target.attributes[1].nodeValue);
+    console.log("yooooo", legislator);
     console.log(e.target.parentNode);
     console.log(e.target);
+    console.log(e.target.value);
+    console.log(e.value);
     // console.log(e.target.__reactProps$ts7i81b1slc);
-    // const requestOptions = {
-    //   method: "DELETE",
-    // };
-    // fetch(`http://localhost:3000/user_legislators/${id}`, requestOptions);
+    const requestOptions = {
+      method: "DELETE",
+    };
+    fetch(
+      `http://localhost:3000/user_legislator/${e.target.attributes[1].nodeValue}`,
+      requestOptions
+    );
     // setComments(comments.filter((fav) => comment.id !== id));
   }
 
   const favLegislators = userLegislators.map((legislator) => {
     // return <h1>{legislator.legislator.name}</h1>;
+    console.log("hasssssss", legislator.notes);
     return (
       <div className="col-md-4">
         <div className="card">
@@ -38,6 +49,28 @@ function UserLegislator({ userLegislators }) {
             </h4>
             <h5>{legislator.legislator.party}</h5>
             <h7>{legislator.legislator.email}</h7>
+            {isEditing ? (
+              <EditNote
+                // onUpdateMessage={handleUpdateMessage}
+                key={legislator.id}
+                id={legislator.id}
+                legislator_id={legislator.legislator.id}
+                note={legislator.notes}
+              />
+            ) : (
+              // <p>yooooooo</p>
+              // <p>edittttt</p>
+              <h6>{legislator.notes}</h6>
+            )}
+            <button
+              className="btn btn-outline-secondary"
+              onClick={() => setIsEditing((isEditing) => !isEditing)}
+            >
+              <span role="img" aria-label="edit">
+                ✏️
+              </span>
+            </button>
+            {/* <h6>{legislator.notes}</h6> */}
             <br></br>
             <button
               className="btn btn-outline-secondary"

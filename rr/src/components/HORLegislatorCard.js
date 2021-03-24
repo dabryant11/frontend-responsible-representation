@@ -19,7 +19,9 @@ function HORLegislatorCard({ representative, id }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ user_id: 1, legislator_id: representative.id }),
-    });
+    })
+      .then((r) => r.json())
+      .then((data) => console.log(data));
   }
 
   return (
@@ -38,6 +40,8 @@ function HORLegislatorCard({ representative, id }) {
           <h4 className="card-title">District: {representative.district}</h4>
           <h5>{representative.party}</h5>
           <h7>{representative.email}</h7>
+          <br></br>
+
           <br></br>
           {isFavorite ? (
             <button

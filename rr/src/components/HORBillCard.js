@@ -40,9 +40,13 @@ function HORBillCard({ bill, id }) {
           {/* <h4 className="card-title">District: {bill.district}</h4> */}
           <h5>{bill.title}</h5>
           <h5>{bill.subject}</h5>
-          <h7>{bill.status}</h7>
+          {/* {BILLSUBJECT} */}
+          {/* const subjectz = bill.subject.map(subject => {return(
+            <ul>
+            
+            </ul>
+          )})<h7>{bill.status}</h7> */}
           <br></br>
-
           <br></br>
           {/* {isFavorite ? (
             <button

@@ -79,7 +79,10 @@ function App() {
   const representatives = legislators.filter(
     (legislator) => legislator.title === "Representative"
   );
-  console.log("hello", userLegislators);
+  // console.log("hello", userLegislators);
+  // const favLegislators = userLegislators.filter((legislator) =>
+  //   legislator.includes(legislators)
+  // );
 
   return (
     <div className="app">

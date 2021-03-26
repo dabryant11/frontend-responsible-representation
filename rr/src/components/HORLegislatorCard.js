@@ -39,6 +39,9 @@ function HORLegislatorCard({
   //   from_email: trip.owner.email,
   //   trip_name: trip.name,
   // };
+  const favorite = userLegislators.find((userLegislator) => {
+    return userLegislator.id === representative.id;
+  });
 
   return (
     <div className="col-md-4">

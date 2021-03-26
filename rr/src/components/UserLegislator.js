@@ -5,6 +5,8 @@ import AddNote from "./AddNote";
 function UserLegislator({ userLegislators, setUserLegislators }) {
   const [isEditing, setIsEditing] = useState(false);
   const [isAdding, setIsAdding] = useState(false);
+  const [hiddenForm, setHiddenForm] = useState(true);
+
   // const [commentForm, setCommentForm] = useState({
   //   user_id: 1,
   //   legislator_id: "",
@@ -68,7 +70,12 @@ function UserLegislator({ userLegislators, setUserLegislators }) {
   //   setCommentForm(updatedFormState);
   //   console.log(updatedFormState);
   // }
-  console.log("fiddy", userLegislators);
+
+  function hideForm() {
+    setHiddenForm(!hiddenForm);
+  }
+
+  // console.log("fiddy", userLegislators);
   const favLegislators = userLegislators.map((legislator) => {
     // return <h1>{legislator.legislator.name}</h1>;
     // console.log("hasssssss", legislator.id);
@@ -105,17 +112,40 @@ function UserLegislator({ userLegislators, setUserLegislators }) {
                 </button>
               </div>
             </form> */}
-            {isAdding ? (
+            {/* {isAdding ? (
               <AddNote
                 key={legislator.id}
                 id={legislator.id}
                 legislator_id={legislator.legislator.id}
                 note={legislator.notes}
               />
-            ) : (
-              <p>why not add?</p>
+            ) : ( */}
+            {/* // <p>why not add?</p> */}
+            <br></br>
+            <button onClick={hideForm} className="btn btn-outline-secondary">
+              {hiddenForm ? "Add/edit note" : "Nah nevermind"}
+            </button>
+            {hiddenForm ? null : (
+              <AddNote
+                key={legislator.id}
+                id={legislator.id}
+                legislator_id={legislator.legislator.id}
+                note={legislator.notes}
+                setHiddenForm={setHiddenForm}
+                userLegislators={userLegislators}
+                setUserLegislators={setUserLegislators}
+              />
+              // <NewCommentForm
+              //   site={site}
+              //   setComments={setComments}
+              //   comments={comments}
+              //   setHiddenForm={setHiddenForm}
+              //   setHiddenShowForm={setHiddenShowForm}
+              // />
             )}
-            {isEditing ? (
+            <h6>{legislator.notes}</h6>
+
+            {/* {isEditing ? (
               <EditNote
                 // onUpdateMessage={handleUpdateMessage}
                 key={legislator.id}
@@ -135,7 +165,7 @@ function UserLegislator({ userLegislators, setUserLegislators }) {
               <span role="img" aria-label="edit">
                 ✏️
               </span>
-            </button>
+            </button> */}
             {/* <h6>{legislator.notes}</h6> */}
             <br></br>
             <button

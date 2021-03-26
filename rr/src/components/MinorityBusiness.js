@@ -24,23 +24,24 @@ function MinorityBusiness({ businesses, setBusinesses }) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(minorityBusinessFormState),
-    }).then((r) => r.json());
-    // .then(setBusinesses);
-    // .then((bizData) => {
-    //   const newBusinesses = [...businesses, bizData];
-    //   setBusinesses(newBusinesses);
-    //   setMinorityBusinessFormState({
-    //     name: "",
-    //     address: "",
-    //     rating: "",
-    //     image: "",
-    //     hours: "",
-    //     website: "",
-    //     twitter: "",
-    //     ig: "",
-    //     facebook: "",
-    //   });
-    // });
+    })
+      .then((r) => r.json())
+      // .then(setBusinesses);
+      .then((bizData) => {
+        const newBusiness = [...businesses, bizData];
+        setBusinesses(newBusiness);
+        setMinorityBusinessFormState({
+          name: "",
+          address: "",
+          rating: "",
+          image: "",
+          hours: "",
+          website: "",
+          twitter: "",
+          ig: "",
+          facebook: "",
+        });
+      });
   }
 
   function updateFormState(e) {
@@ -55,8 +56,8 @@ function MinorityBusiness({ businesses, setBusinesses }) {
   });
   return (
     <div className="new-plant-form">
-      <h1> New Minority Businesses</h1>;
       <img src={Piggy} />
+      <h1> Add a New Minority Business</h1>;
       <form onSubmit={handleSubmit}>
         {/* <input
           type="text"

@@ -31,6 +31,7 @@ function App() {
     fetch("http://localhost:3000/user_legislators")
       .then((r) => r.json())
       .then((data) => setUserLegislators(data));
+    // .then((data) => (data));
   }, []);
 
   useEffect(() => {
@@ -70,7 +71,7 @@ function App() {
   const houseOfRepresentativesCommittees = committees.filter(
     (committee) => committee.chamber === "House of Representatives"
   );
-  console.log(houseOfRepresentativesCommittees);
+  // console.log(houseOfRepresentativesCommittees);
   const senators = legislators.filter(
     (legislator) => legislator.title === "Senator"
   );
@@ -78,6 +79,7 @@ function App() {
   const representatives = legislators.filter(
     (legislator) => legislator.title === "Representative"
   );
+  console.log("hello", userLegislators);
 
   return (
     <div className="app">
@@ -135,10 +137,18 @@ function App() {
           <SenateCommittee committees={senateCommittees} />
         </Route>
         <Route exact path="/HOR/legislators">
-          <HORLegislator representatives={representatives} />
+          <HORLegislator
+            representatives={representatives}
+            setUserLegislators={setUserLegislators}
+            userLegislators={userLegislators}
+          />
         </Route>
         <Route exact path="/senate/legislators">
-          <SenateLegislator senators={senators} />
+          <SenateLegislator
+            senators={senators}
+            setUserLegislators={setUserLegislators}
+            userLegislators={userLegislators}
+          />
         </Route>
         <Route exact path="/chambers">
           <Chambers

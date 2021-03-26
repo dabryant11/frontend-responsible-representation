@@ -1,7 +1,7 @@
 import React from "react";
 import SenateLegislatorCard from "./SenateLegislatorCard";
 
-function SenateLegislator({ senators }) {
+function SenateLegislator({ senators, setUserLegislators, userLegislators }) {
   //   console.log(senatorss);
   return (
     <div className="container-fluid padding">
@@ -9,7 +9,14 @@ function SenateLegislator({ senators }) {
       <div className="row padding">
         {senators.map((senator) => {
           //   console.log(senator);
-          return <SenateLegislatorCard key={senator.id} senator={senator} />;
+          return (
+            <SenateLegislatorCard
+              key={senator.id}
+              senator={senator}
+              setUserLegislators={setUserLegislators}
+              userLegislators={userLegislators}
+            />
+          );
         })}
       </div>
     </div>

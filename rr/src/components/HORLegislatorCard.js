@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-function HORLegislatorCard({ representative, id }) {
+function HORLegislatorCard({
+  representative,
+  id,
+  setUserLegislators,
+  userLegislators,
+}) {
   const [isFavorite, setIsFavorite] = useState(false);
   //   console.log(representative.id);
 
@@ -21,8 +26,19 @@ function HORLegislatorCard({ representative, id }) {
       body: JSON.stringify({ user_id: 1, legislator_id: representative.id }),
     })
       .then((r) => r.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        const newUserLegislator = [...userLegislators, data];
+        setUserLegislators(newUserLegislator);
+      });
   }
+
+  // const templateParams = {
+  //   to_name: trip.traveler.name,
+  //   to_email: trip.traveler.email,
+  //   from_name: trip.owner.name,
+  //   from_email: trip.owner.email,
+  //   trip_name: trip.name,
+  // };
 
   return (
     <div className="col-md-4">

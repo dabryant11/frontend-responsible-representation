@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import EditNote from "./EditNote";
+import AddNote from "./AddNote";
 
-function UserLegislator({ userLegislators }) {
+function UserLegislator({ userLegislators, setUserLegislators }) {
   const [isEditing, setIsEditing] = useState(false);
+  const [isAdding, setIsAdding] = useState(false);
+  // const [commentForm, setCommentForm] = useState({
+  //   user_id: 1,
+  //   legislator_id: "",
+  //   content: "",
+  // });
 
   // console.log(userLegislators[0].id);
   // console.log(userLegislators[1]);
@@ -25,9 +32,43 @@ function UserLegislator({ userLegislators }) {
       method: "DELETE",
     };
     fetch(`http://localhost:3000/user_legislator/${id}`, requestOptions);
-    // setComments(comments.filter((fav) => comment.id !== id));
+    setUserLegislators(
+      userLegislators.filter((legislator) => legislator.id !== id)
+    );
   }
 
+  // function handleSubmit(id) {
+  //   // e.preventDefault();
+  //   console.log("um", commentForm.content);
+
+  //   // console.log("postyyyy", legislator.id);
+  //   fetch("http://localhost:3000/user_legislators", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       user_id: 1,
+  //       legislator_id: 1,
+  //       notes: commentForm.content,
+  //     }),
+  //   });
+  //   // .then((r) => r.json())
+  //   // .then((data) => {
+  //   //   const newComments = [...comments, data];
+  //   //   setComments(newComments);
+  //   //   setHiddenForm(true);
+  //   //   setHiddenShowForm(false);
+  //   // });
+  // }
+
+  // function updateFormState(e) {
+  //   const updatedFormState = { ...commentForm };
+  //   updatedFormState[e.target.name] = e.target.value;
+  //   setCommentForm(updatedFormState);
+  //   console.log(updatedFormState);
+  // }
+  console.log("fiddy", userLegislators);
   const favLegislators = userLegislators.map((legislator) => {
     // return <h1>{legislator.legislator.name}</h1>;
     // console.log("hasssssss", legislator.id);
@@ -47,6 +88,33 @@ function UserLegislator({ userLegislators }) {
             </h4>
             <h5>{legislator.legislator.party}</h5>
             <h7>{legislator.legislator.email}</h7>
+            {/* <form onSubmit={handleSubmit(legislator.id)}>
+              <div class="form-group">
+                <label for="formGroupExampleInput">Add a Note</label>
+                <input
+                  type="text"
+                  name="content"
+                  value={commentForm.content}
+                  class="form-control"
+                  id="formGroupExampleInput"
+                  placeholder="Add a note..."
+                  onChange={updateFormState}
+                />
+                <button type="submit" class="btn btn-outline-secondary submit">
+                  Submit
+                </button>
+              </div>
+            </form> */}
+            {isAdding ? (
+              <AddNote
+                key={legislator.id}
+                id={legislator.id}
+                legislator_id={legislator.legislator.id}
+                note={legislator.notes}
+              />
+            ) : (
+              <p>why not add?</p>
+            )}
             {isEditing ? (
               <EditNote
                 // onUpdateMessage={handleUpdateMessage}

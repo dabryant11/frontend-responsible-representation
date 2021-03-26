@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 
-function SenateLegislatorCard({ senator, id }) {
+function SenateLegislatorCard({
+  senator,
+  id,
+  setUserLegislators,
+  userLegislators,
+}) {
   const [isFavorite, setIsFavorite] = useState(false);
   //   console.log(senator.id);
 
@@ -21,7 +26,10 @@ function SenateLegislatorCard({ senator, id }) {
       body: JSON.stringify({ user_id: 1, legislator_id: senator.id }),
     })
       .then((r) => r.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        const newUserLegislator = [...userLegislators, data];
+        setUserLegislators(newUserLegislator);
+      });
   }
 
   return (

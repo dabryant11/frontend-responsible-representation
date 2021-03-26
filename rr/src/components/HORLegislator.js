@@ -1,7 +1,11 @@
 import React from "react";
 import HORLegislatorCard from "./HORLegislatorCard";
 
-function HORLegislator({ representatives }) {
+function HORLegislator({
+  representatives,
+  setUserLegislators,
+  userLegislators,
+}) {
   //   console.log(representatives);
   return (
     <div className="container-fluid padding">
@@ -13,6 +17,8 @@ function HORLegislator({ representatives }) {
             <HORLegislatorCard
               key={representative.id}
               representative={representative}
+              setUserLegislators={setUserLegislators}
+              userLegislators={userLegislators}
             />
           );
         })}

@@ -24,6 +24,16 @@ function HORBillCard({ bill, id }) {
   //       .then((data) => console.log(data));
   //   }
 
+  const newSub = bill.subject.slice(1, -1);
+  console.log(newSub);
+  const newerSub = newSub.replace(/[',"]+/g, "");
+  console.log("yoooooo", newerSub[0]);
+  const splat = newSub.split(", ");
+  console.log("hahahah", splat);
+  const subjectLi = splat.map((sub) => {
+    return <li>{sub}</li>;
+  });
+  // console.log(bill.bill_number);
   return (
     <div className="col-md-4">
       <div className="card">
@@ -39,13 +49,9 @@ function HORBillCard({ bill, id }) {
           <h2>{bill.bill_number}</h2>
           {/* <h4 className="card-title">District: {bill.district}</h4> */}
           <h5>{bill.title}</h5>
-          <h5>{bill.subject}</h5>
-          {/* {BILLSUBJECT} */}
-          {/* const subjectz = bill.subject.map(subject => {return(
-            <ul>
-            
-            </ul>
-          )})<h7>{bill.status}</h7> */}
+          {/* <h5>{bill.subject}</h5> */}
+          <ul>{subjectLi}</ul>
+          <h7>{bill.status}</h7>
           <br></br>
           <br></br>
           {/* {isFavorite ? (

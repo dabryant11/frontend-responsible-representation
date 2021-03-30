@@ -4,10 +4,14 @@ import Kid from "./kid.jpeg"; // with import
 function HomePage() {
   return (
     <div>
+      {/* <div className="yo">
+        {" "}
+        <img src={Kid} width="200" height="auto" />
+      </div> */}
       <div className="container-fluid">
         <div className="row jumbotron">
           <div className="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
-            <p className="lead">
+            <p className="lead" className="yo">
               {/* Over 2,000 landfills are currently open in the United States,
               making our country an uglier place. And although they’re often
               camouflaged fairly well, the negative issues that accompany
@@ -21,7 +25,7 @@ function HomePage() {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe> */}
-            <img src={Kid} />
+            <img src={Kid} class="center" />
           </div>
           <div className="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-2"></div>
         </div>

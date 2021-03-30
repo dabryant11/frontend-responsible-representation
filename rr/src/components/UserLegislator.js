@@ -80,8 +80,10 @@ function UserLegislator({ userLegislators, setUserLegislators }) {
     // return <h1>{legislator.legislator.name}</h1>;
     // console.log("hasssssss", legislator.id);
     return (
-      <div className="col-md-4">
-        <div className="card" data-id={legislator.id}>
+      <div className="col-lg-3 col-md-6 mb-4">
+        <div className="card h-100">
+          {/* <div className="col-md-4"> */}
+          {/* <div className="card" data-id={legislator.id}> */}
           <img
             className="card-img-top"
             src={legislator.legislator.image}
@@ -194,6 +196,8 @@ function UserLegislator({ userLegislators, setUserLegislators }) {
           </div>
         </div>
       </div>
+      // </div>
+      // </div>
     );
   });
   return (

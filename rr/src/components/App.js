@@ -104,9 +104,9 @@ function App() {
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         />
-        <link href="style.css" rel="stylesheet" />
       </div>
       <Header />
+      {/* <div id="bodyTop"></div> */}
 
       <Switch>
         <Route exact path="/home">

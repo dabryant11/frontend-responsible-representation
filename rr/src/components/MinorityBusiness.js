@@ -57,7 +57,7 @@ function MinorityBusiness({ businesses, setBusinesses }) {
   return (
     <div className="new-plant-form">
       <img src={Piggy} />
-      <h1> Add a New Minority Business</h1>;
+      <h1> Add a New Minority Business</h1>
       <form onSubmit={handleSubmit}>
         {/* <input
           type="text"
@@ -73,6 +73,8 @@ function MinorityBusiness({ businesses, setBusinesses }) {
           placeholder="bizzzzzname"
           onChange={updateFormState}
         />
+        <br></br>
+        <br></br>
         <input
           type="text"
           name="address"
@@ -80,6 +82,7 @@ function MinorityBusiness({ businesses, setBusinesses }) {
           placeholder="Address"
           onChange={updateFormState}
         />
+        <br></br> <br></br>
         <input
           type="text"
           name="rating"
@@ -87,6 +90,7 @@ function MinorityBusiness({ businesses, setBusinesses }) {
           placeholder="Biz rating"
           onChange={updateFormState}
         />
+        <br></br> <br></br>
         <input
           type="text"
           name="image"
@@ -94,6 +98,7 @@ function MinorityBusiness({ businesses, setBusinesses }) {
           placeholder="Image URL"
           onChange={updateFormState}
         />
+        <br></br> <br></br>
         <input
           type="text"
           name="hours"
@@ -101,6 +106,7 @@ function MinorityBusiness({ businesses, setBusinesses }) {
           placeholder="hours"
           onChange={updateFormState}
         />
+        <br></br> <br></br>
         <input
           type="text"
           name="website"
@@ -108,6 +114,7 @@ function MinorityBusiness({ businesses, setBusinesses }) {
           placeholder="website"
           onChange={updateFormState}
         />
+        <br></br> <br></br>
         <input
           type="text"
           name="twitter"
@@ -115,6 +122,7 @@ function MinorityBusiness({ businesses, setBusinesses }) {
           placeholder="twitter"
           onChange={updateFormState}
         />
+        <br></br> <br></br>
         <input
           type="text"
           name="ig"
@@ -122,6 +130,7 @@ function MinorityBusiness({ businesses, setBusinesses }) {
           placeholder="ig"
           onChange={updateFormState}
         />
+        <br></br> <br></br>
         <input
           type="text"
           name="facebook"
@@ -129,7 +138,8 @@ function MinorityBusiness({ businesses, setBusinesses }) {
           placeholder="facebook"
           onChange={updateFormState}
         />
-
+        <br></br>
+        <br></br>
         <button type="submit">Add Business</button>
       </form>
       {allBusinesses}

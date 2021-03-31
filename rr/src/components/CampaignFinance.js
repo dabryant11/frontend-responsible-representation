@@ -39,7 +39,7 @@ function CampaignFinance({ finances }) {
     <div>
       <div className="row welcome text-center">
         <div className="col-12">
-          <h1> $$$$$$$</h1>
+          <h1> Campaign Finances</h1>
           <img src={money} />
 
           <br></br>

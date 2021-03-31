@@ -7,7 +7,7 @@ function Activism() {
     <div>
       <div className="row welcome text-center">
         <div className="col-12">
-          <h1 className="display"> Activism</h1>
+          {/* <h1 className="display"> Activism</h1> */}
         </div>
       </div>
 
@@ -106,23 +106,7 @@ function Activism() {
           <hr></hr>
         </div>
       </div>
-      <div className="container-fluid padding">
-        <div className="row padding">
-          <div className="col-md-4">
-            {/* <div className="card">
-              <img
-                className="card-img-top"
-                style={{ width: "50px", height: "auto" }}
-                src="https://media-exp1.licdn.com/dms/image/C5603AQFqTuPUp4vWHA/profile-displayphoto-shrink_200_200/0/1561042890055?e=1620259200&v=beta&t=tbO6x9FOnN_u4YngKZ5oZF6yvHMIVmccbSEgWHrM_n4"
-              />
-              <div className="card-body">
-                <h4 className="card-title">Darien Bryant</h4>
-                <p className="card-text">Full Stack Developer</p>
-              </div>
-            </div> */}
-          </div>
-        </div>
-      </div>
+      {/*  */}
       <div className="container-fluid padding">
         <div className="row padding">
           <div className="col-lg-6">

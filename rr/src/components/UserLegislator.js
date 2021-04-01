@@ -132,8 +132,10 @@ function UserLegislator({ userLegislators, setUserLegislators }) {
                   onClick={hideForm}
                   className="btn btn-outline-secondary"
                 >
-                  {hiddenForm ? "Add/edit note" : "Nah nevermind"}
+                  {hiddenForm ? "Add/edit note" : "Done"}
                 </button>
+                <br></br>
+                <br></br>
                 {hiddenForm ? null : (
                   <AddNote
                     key={legislator.id}

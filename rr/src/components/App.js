@@ -57,7 +57,6 @@ function App() {
         setBills(bills);
       });
   }, []);
-  // console.log("aghhhhhhh", legislators);
 
   useEffect(() => {
     fetch("http://localhost:3000/committees")
@@ -81,7 +80,6 @@ function App() {
   const houseOfRepresentativesCommittees = committees.filter(
     (committee) => committee.chamber === "House of Representatives"
   );
-  // console.log(houseOfRepresentativesCommittees);
   const senators = legislators.filter(
     (legislator) => legislator.title === "Senator"
   );
@@ -89,7 +87,6 @@ function App() {
   const representatives = legislators.filter(
     (legislator) => legislator.title === "Representative"
   );
-  // console.log("hello", userLegislators);
   // const favLegislators = userLegislators.filter((legislator) =>
   //   legislator.includes(legislators)
   // );
